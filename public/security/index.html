@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security - Nyx Uploader</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300 antialiased">
+
+    <header class="sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="/" class="text-lg font-bold text-slate-800 dark:text-white">Nyx Uploader</a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-700 text-xl">🌙</button>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Our Approach to Security</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400">We take the security of your data seriously. Here’s how we protect it.</p>
+            <p class="mt-2 text-sm text-slate-400">Last updated: July 26, 2025</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <article class="prose dark:prose-invert lg:prose-lg max-w-none prose-headings:font-semibold prose-headings:text-slate-800 dark:prose-headings:text-white prose-a:text-blue-600 hover:prose-a:text-blue-500">
+                <p>At Nyx Uploader, the security of your data is a top priority. We build our platform with robust security practices at every layer to ensure your files are safe.</p>
+
+                <h2>Data Encryption</h2>
+                <ul>
+                    <li><strong>Encryption in Transit:</strong> All data sent between your device and our servers is protected using Transport Layer Security (TLS) 1.2 or higher. This ensures that no third party can eavesdrop on your data as it travels over the network.</li>
+                    <li><strong>Encryption at Rest:</strong> We implement storage-level encryption to protect your files while they are stored on our servers, adding a layer of protection against unauthorized access.</li>
+                </ul>
+            
+                <h2>Application Security</h2>
+                <ul>
+                    <li><strong>Secure File Validation:</strong> Every uploaded file is validated by its MIME type to prevent the uploading of malicious scripts. We also sanitize filenames to prevent attacks like path traversal.</li>
+                    <li><strong>DoS Attack Prevention:</strong> We implement rate-limiting mechanisms based on IP address to protect the service from Denial-of-Service (DoS) attacks and brute-force attempts.</li>
+                    <li><strong>Resilient Infrastructure:</strong> Our servers are designed for graceful shutdown, ensuring data integrity even during maintenance or unexpected events.</li>
+                </ul>
+
+                <h2>Infrastructure Security</h2>
+                <p>We use leading cloud infrastructure providers that adhere to international security standards. Our infrastructure is protected by firewalls and actively monitored for suspicious activity.</p>
+            
+                <h2>Responsible Disclosure</h2>
+                <p>We believe that collaboration with the security community is essential. If you discover a security vulnerability in our service, we ask that you report it to us responsibly.</p>
+                <p>Please send your findings to <a href="mailto:security@obscuraworks.com">security@obscuraworks.com</a>. We are committed to investigating all valid reports and taking the necessary action to correct them.</p>
+            
+                <h2>Your Role in Security</h2>
+                <p>While we work hard to protect your data, you also play a crucial role. Please be careful when sharing your download links, especially if the files contain sensitive information.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        <p>&copy; 2025 Nyx Uploader. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            darkModeToggle.textContent = '🌙';
+        }
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+            darkModeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
+
+

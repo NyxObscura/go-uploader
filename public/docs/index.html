@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Nyx Uploader</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <style>
+        pre[class*="language-"] { position: relative; padding-top: 2.5rem; }
+        .copy-button { position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.25rem 0.5rem; background-color: #4a5568; color: white; border: none; border-radius: 0.375rem; cursor: pointer; font-size: 0.875rem; transition: background-color 0.2s; }
+        .copy-button:hover { background-color: #2d3748; }
+        .dark .copy-button { background-color: #718096; }
+        .dark .copy-button:hover { background-color: #a0aec0; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300 antialiased">
+
+    <header class="sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="/" class="text-lg font-bold text-slate-800 dark:text-white">Nyx Uploader</a>
+            <div class="flex items-center gap-x-4">
+                 <a href="/docs" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500">API Docs</a>
+                <button id="darkModeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-700 text-xl">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">API Documentation</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400">Integrate Nyx Uploader into your own application.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto prose dark:prose-invert lg:prose-lg max-w-none prose-headings:font-semibold prose-headings:text-slate-800 dark:prose-headings:text-white">
+            
+            <h2>Authentication</h2>
+            <p>The public upload endpoint does not require authentication. You can make requests directly without an API key.</p>
+            
+            <hr class="my-8">
+
+            <h2>Upload Endpoint</h2>
+            <p>To upload a file, send a <code>POST</code> request with <code>multipart/form-data</code> to the following endpoint:</p>
+            <p><code>POST /upload</code></p>
+
+            <h3>Parameters</h3>
+            <ul>
+                <li><strong>file</strong> (form-data, required): The file you want to upload.</li>
+            </ul>
+
+            <h3>Example: cURL</h3>
+            <pre><code class="language-bash">curl -X POST "https://uploader.obscuraworks.com/upload" \
+-F "file=@/path/to/your/image.jpg"</code></pre>
+
+            <h3>Example: Node.js (with Axios)</h3>
+            <pre><code class="language-javascript">const axios = require('axios');
+const fs = require('fs');
+const FormData = require('form-data');
+
+async function uploadFile(filePath) {
+  const url = 'https://uploader.obscuraworks.com/upload';
+  const form = new FormData();
+  form.append('file', fs.createReadStream(filePath));
+
+  try {
+    const response = await axios.post(url, form, {
+      headers: {
+        ...form.getHeaders(),
+      },
+    });
+    console.log('File uploaded successfully:', response.data);
+  } catch (error) {
+    console.error('Error uploading file:', error.response.data);
+  }
+}
+
+uploadFile('/path/to/your/image.jpg');</code></pre>
+
+            <h3>Example: Python (with Requests)</h3>
+            <pre><code class="language-python">import requests
+
+url = "https://uploader.obscuraworks.com/upload"
+file_path = "/path/to/your/image.jpg"
+
+with open(file_path, "rb") as f:
+    files = {"file": (f.name, f, "image/jpeg")}
+    response = requests.post(url, files=files)
+
+if response.status_code == 200:
+    print("File uploaded successfully:")
+    print(response.json())
+else:
+    print(f"Error uploading file: {response.status_code}")
+    print(response.json())
+</code></pre>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        <p>&copy; 2025 Nyx Uploader. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Dark Mode
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            darkModeToggle.textContent = '🌙';
+        }
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+            darkModeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // Copy to Clipboard
+        document.querySelectorAll('pre').forEach(pre => {
+            const button = document.createElement('button');
+            button.className = 'copy-button';
+            button.textContent = 'Copy';
+            pre.appendChild(button);
+
+            button.addEventListener('click', () => {
+                const code = pre.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = 'Copied!';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

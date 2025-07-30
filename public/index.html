@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyx Uploader - Fast, Secure, and Reliable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 antialiased">
+
+    <header class="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
+        <div class="text-lg font-bold text-slate-700 dark:text-white">Nyx Uploader</div>
+        <div class="flex items-center gap-x-4">
+            <a href="https://github.com/NyxObscura/go-uploader" target="_blank" rel="noopener noreferrer" title="View source on GitHub" class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors">
+                <svg class="h-6 w-6" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-700 text-xl">
+                🌙
+            </button>
+        </div>
+    </header>
+
+    <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transform translate-y-[-20px] transition-all duration-300">
+        Link copied to clipboard!
+    </div>
+
+    <main class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+        <div class="w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="text-center lg:text-left">
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white">
+                    The Next-Generation <span class="text-blue-600 dark:text-blue-400">File Upload</span> Platform
+                </h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                    Share your files with unparalleled speed and security. Perfect for personal and professional needs.
+                </p>
+                <ul class="mt-8 space-y-4 text-left inline-block">
+                    <li class="flex items-center">
+                        <svg class="h-6 w-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        <span class="font-medium">Fast & Efficient</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-6 w-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <span class="font-medium">Secure & Encrypted</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-6 w-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        <span class="font-medium">Responsive Design</span>
+                    </li>
+                </ul>
+                
+                <div class="mt-10">
+                    <a href="https://github.com/NyxObscura/go-uploader" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 rounded-lg font-semibold hover:bg-slate-700 dark:hover:bg-white transition-colors shadow-lg">
+                        <svg class="h-6 w-6" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        <span>Get source code on GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full">
+                <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-lg">
+                    <form id="uploadForm">
+                        <div id="dropZone" class="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-lg p-6 sm:p-10 cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-all text-center">
+                            <input type="file" name="file" id="fileInput" class="hidden">
+                            <div id="uploadPlaceholder">
+                                <svg class="mx-auto h-12 w-12 text-slate-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                                    <span class="font-semibold text-blue-600 dark:text-blue-400">Choose a file</span> or drag it here.
+                                </p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Up to 50MB</p>
+                            </div>
+                            <div id="imagePreview" class="hidden"></div>
+                        </div>
+
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 my-4 hidden" id="progressBarContainer">
+                            <div id="progressBarFill" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+
+                        <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all disabled:bg-slate-400 disabled:cursor-not-allowed">
+                            Upload File
+                        </button>
+                    </form>
+                    <div id="result" class="mt-6 text-left"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center pb-4 text-sm text-slate-500 dark:text-slate-400">
+    <p>&copy; 2025 Nyx Uploader. All Rights Reserved.</p>
+    <div class="mt-2">
+        <a href="/docs/" class="hover:underline">API Docs</a>
+        <span class="mx-2">&middot;</span>
+        <a href="/terms-of-service/" class="hover:underline">Terms of Service</a>
+        <span class="mx-2">&middot;</span>
+        <a href="/privacy-policy/" class="hover:underline">Privacy Policy</a>
+        <span class="mx-2">&middot;</span>
+        <a href="/security/" class="hover:underline">Security</a>
+    </div>
+</footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
+
+
+

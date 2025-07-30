@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Nyx Uploader</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300 antialiased">
+
+    <header class="sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="/" class="text-lg font-bold text-slate-800 dark:text-white">Nyx Uploader</a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-700 text-xl">🌙</button>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Terms of Service</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400">The rules for using our platform.</p>
+            <p class="mt-2 text-sm text-slate-400">Last updated: July 26, 2025</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <article class="prose dark:prose-invert lg:prose-lg max-w-none prose-headings:font-semibold prose-headings:text-slate-800 dark:prose-headings:text-white prose-a:text-blue-600 hover:prose-a:text-blue-500">
+                <p>Welcome to Nyx Uploader! These Terms of Service ("Terms") govern your access to and use of our services. By using our service, you agree to be bound by these Terms.</p>
+
+                <h2>1. Description of Service</h2>
+                <p>Nyx Uploader (the "Service") is a platform that allows users to upload, temporarily store, and share files over the internet. Uploaded files will be available via a unique, shareable link.</p>
+
+                <h2>2. User Responsibilities</h2>
+                <p>You are solely responsible for the files you upload and share. You agree not to use the Service to upload or distribute any content that:</p>
+                <ul>
+                    <li>Is illegal, unlawful, or promotes illegal activity.</li>
+                    <li>Infringes on any copyright, patent, trademark, or other intellectual property rights.</li>
+                    <li>Contains viruses, malware, or other malicious code.</li>
+                    <li>Is harassing, defamatory, obscene, or hateful.</li>
+                    <li>Violates the privacy of others, including distributing personally identifiable information without consent.</li>
+                </ul>
+                <p>We reserve the right, but not the obligation, to remove any content we deem to be in violation of these Terms without prior notice.</p>
+            
+                <h2>3. Content Ownership and License</h2>
+                <p>You retain full ownership rights to the content you upload. However, by uploading a file, you grant Nyx Uploader a worldwide, non-exclusive, royalty-free license to store, reproduce, and serve your content solely for the purpose of providing and operating the Service.</p>
+
+                <h2>4. Data Storage and Deletion</h2>
+                <p>Nyx Uploader is a temporary storage service. We reserve the right to automatically delete uploaded files after a certain period (e.g., 30 days) or if they exceed applicable storage limits. We are not responsible for any loss of data resulting from file deletion.</p>
+
+                <h2>5. Termination of Service</h2>
+                <p>We may suspend or terminate your access to the Service at any time, with or without cause, if you violate these Terms.</p>
+
+                <h2>6. Disclaimer of Warranties</h2>
+                <p>The Service is provided "AS IS" without any warranties, express or implied. Nyx Uploader does not guarantee that the service will always be available, secure, or error-free.</p>
+            
+                <h2>7. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by law, Nyx Uploader shall not be liable for any indirect, incidental, or consequential damages arising from the use or inability to use our service.</p>
+
+                <h2>8. Changes to Terms</h2>
+                <p>We may revise these Terms from time to time. The most current version will always be posted on our site. By continuing to use the Service after changes become effective, you agree to be bound by the revised Terms.</p>
+
+                <h2>9. Contact Us</h2>
+                <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:support@obscuraworks.com">support@obscuraworks.com</a>.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        <p>&copy; 2025 Nyx Uploader. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            darkModeToggle.textContent = '🌙';
+        }
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+            darkModeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
+
+

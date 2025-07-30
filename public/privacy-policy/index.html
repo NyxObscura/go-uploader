@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Nyx Uploader</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300 antialiased">
+
+    <header class="sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="/" class="text-lg font-bold text-slate-800 dark:text-white">Nyx Uploader</a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-700 text-xl">🌙</button>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Privacy Policy</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400">Your privacy is important to us. This is how we handle your data.</p>
+            <p class="mt-2 text-sm text-slate-400">Last updated: July 26, 2025</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <article class="prose dark:prose-invert lg:prose-lg max-w-none prose-headings:font-semibold prose-headings:text-slate-800 dark:prose-headings:text-white prose-a:text-blue-600 hover:prose-a:text-blue-500">
+                <p>At Nyx Uploader, we value your privacy. This Privacy Policy explains the types of information we collect from you, how we use it, and the steps we take to protect it.</p>
+
+                <h2>1. Information We Collect</h2>
+                <p>We collect a few types of information to provide and improve our service to you:</p>
+                <ul>
+                    <li><strong>Uploaded Content:</strong> We collect the files you upload to our servers. We do not access the content of your files unless required to provide the service or to comply with the law.</li>
+                    <li><strong>Log & Usage Data:</strong> When you access our service, our servers automatically record information. This may include your IP address, browser type, operating system, timestamps, and other usage data. This information is used for security, analytics, and abuse prevention (e.g., rate limiting).</li>
+                </ul>
+
+                <h2>2. How We Use Your Information</h2>
+                <p>The information we collect is used for the following purposes:</p>
+                <ul>
+                    <li>To provide, operate, and maintain our Service.</li>
+                    <li>To monitor and analyze usage trends to improve the user experience.</li>
+                    <li>To protect the security and integrity of our platform, including detecting and preventing fraudulent activity and abuse.</li>
+                    <li>To comply with applicable legal obligations.</li>
+                </ul>
+
+                <h2>3. Information Sharing and Disclosure</h2>
+                <p><strong>We do not sell, rent, or trade your personal information with third parties.</strong></p>
+                <p>We may only share your information in the following limited circumstances:</p>
+                <ul>
+                    <li><strong>Legal Compliance:</strong> If required by law, such as to comply with a subpoena or other legal process.</li>
+                    <li><strong>Protection of Rights:</strong> To protect the rights, property, or safety of Nyx Uploader, our users, or the public.</li>
+                    <li><strong>Service Providers:</strong> We may share information with third-party vendors (e.g., hosting providers) who help us operate our service. They are bound by strict confidentiality obligations.</li>
+                </ul>
+
+                <h2>4. Data Security</h2>
+                <p>We implement reasonable technical and organizational security measures to protect your data. For more details, please visit our <a href="/security/">Security page</a>.</p>
+
+                <h2>5. Data Retention</h2>
+                <p>We store your uploaded files temporarily as outlined in our Terms of Service. Log data may be kept for a longer period for security analysis purposes.</p>
+
+                <h2>6. Children's Privacy</h2>
+                <p>Our service is not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+
+                <h2>7. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page.</p>
+
+                <h2>8. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@obscuraworks.com">privacy@obscuraworks.com</a>.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        <p>&copy; 2025 Nyx Uploader. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            darkModeToggle.textContent = '🌙';
+        }
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+            darkModeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
+
+
